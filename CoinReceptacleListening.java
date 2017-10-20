@@ -74,6 +74,10 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 		coins[receptacle.getCapacity()-1] = null;
 	}
 	
+	public void Purchase(int amount) {
+		value -= amount;
+	}
+	
 	public int getValue() {
 		return value;
 	}

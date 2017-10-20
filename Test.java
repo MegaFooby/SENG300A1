@@ -4,7 +4,7 @@ import ca.ucalgary.seng300.a1.*;
 import java.util.*;
 
 public class Test {
-	public static void main(String[] args) throws DisabledException {
+	public static void main(String[] args) throws DisabledException, EmptyException, CapacityExceededException {
 		Scanner keyboard = new Scanner(System.in);
 		String input = "";
 		int[] coinTypes = {5, 10, 25, 100, 200};
@@ -40,6 +40,11 @@ public class Test {
 		for(int i = 0; i < numButtons; i++) {
 			buttons[i] = new SelectionButtonListening();
 			machine.getSelectionButton(i).register(buttons[i]);
+		}
+		for(int i = 0; i < 6; i++) {
+			canRacks[i] = new PopCanRackListening();
+			machine.getPopCanRack(i).register(canRacks[i]);
+			machine.getPopCanRack(i).load(new PopCan("Test"));
 		}
 		
 		while(!input.equalsIgnoreCase("quit")) {
@@ -86,7 +91,10 @@ public class Test {
 				if(buttons[i].isPressed()) {
 					if(!canRacks[i].isEmpty()) {
 						if(receptacle.getValue() >= costs[i]) {
-							//TODO subtract cost and dispense pop
+							receptacle.Purchase(costs[i]);
+							machine.getPopCanRack(i).dispensePopCan();
+						} else {
+							//not enough change
 						}
 					} else {
 						//out of pop in the rack

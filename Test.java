@@ -1,6 +1,10 @@
+package ca.ucalgary.seng300.a1.test;
+
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
+
 import ca.ucalgary.seng300.a1.*;
+
 import java.util.*;
 
 public class Test {
@@ -27,12 +31,14 @@ public class Test {
 		SelectionButtonListening[] buttons = new SelectionButtonListening[numButtons];
 		CoinReceptacleListening receptacle = new CoinReceptacleListening(reCap);
 		PopCanRackListening[] canRacks = new PopCanRackListening[6];
+		DeliveryChuteListening chute = new DeliveryChuteListening();
 		
 		VendingMachine machine = new VendingMachine(coinTypes, numButtons, coinCap, popCap, reCap);
 		machine.configure(popNames, prices);
 		machine.disableSafety();
 		machine.getCoinSlot().register(slot);
 		machine.getCoinReceptacle().register(receptacle);
+		machine.getDeliveryChute().register(chute);
 		for(int i = 0; i < coinTypes.length; i++) {
 			racks[i] = new CoinRackListening(coinTypes[i]);
 			machine.getCoinRack(i).register(racks[i]);
@@ -86,6 +92,7 @@ public class Test {
 			}
 			if(insert != null) {
 				machine.getCoinSlot().addCoin(insert);
+				System.out.print(receptacle.getValue() + "\n");
 			}
 			for(int i = 0; i < numButtons; i++) {
 				if(buttons[i].isPressed()) {
@@ -93,11 +100,14 @@ public class Test {
 						if(receptacle.getValue() >= costs[i]) {
 							receptacle.Purchase(costs[i]);
 							machine.getPopCanRack(i).dispensePopCan();
+							System.out.print("Pop should dispense\n");
 						} else {
 							//not enough change
+							System.out.print("No change\n");
 						}
 					} else {
 						//out of pop in the rack
+						System.out.print("No pop\n");
 					}
 				}
 			}

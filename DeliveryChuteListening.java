@@ -1,3 +1,6 @@
+//SENG300 Group Assignment 1
+//Tae Chyung, Cameron Davies & Grace Ferguson (30004869)
+
 package ca.ucalgary.seng300.a1;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;

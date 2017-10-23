@@ -1,5 +1,9 @@
-//SENG300 Group Assignment 1
-//Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+/**
+ * SENG300 Group Assignment 1
+ * @author Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+ * 
+ * A class that sets up and tests the vending machine
+ */
 
 package ca.ucalgary.seng300.a1.test;
 
@@ -87,12 +91,14 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void regularUseTest() throws DisabledException {
-		assertFalse(canRacks[3].isEmpty());
-		machine.getCoinSlot().addCoin(new Coin(200));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getSelectionButton(3).press();
-		assertTrue(canRacks[3].isEmpty());
+		for(int i = 0; i < 6; i++) {
+			assertFalse(canRacks[i].isEmpty());
+			machine.getCoinSlot().addCoin(new Coin(200));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getSelectionButton(i).press();
+			assertTrue(canRacks[i].isEmpty());
+		}
 	}
 
 	/**
@@ -128,16 +134,18 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void multiplePopTest() throws DisabledException {
-		machine.getPopCanRack(2).load(new PopCan(machine.getPopKindName(2)));
-		machine.getCoinSlot().addCoin(new Coin(200));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getSelectionButton(2).press();
-		machine.getCoinSlot().addCoin(new Coin(200));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getSelectionButton(2).press();
-		assertTrue(canRacks[2].isEmpty());
+		for(int i = 0; i < 6; i++) {
+			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
+			machine.getCoinSlot().addCoin(new Coin(200));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getSelectionButton(i).press();
+			machine.getCoinSlot().addCoin(new Coin(200));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getSelectionButton(i).press();
+			assertTrue(canRacks[i].isEmpty());
+		}
 	}
 
 	/**
@@ -148,17 +156,19 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void multiplePopTest2() throws DisabledException {
-		machine.getPopCanRack(2).load(new PopCan(machine.getPopKindName(2)));
-		machine.getPopCanRack(2).load(new PopCan(machine.getPopKindName(2)));
-		machine.getCoinSlot().addCoin(new Coin(200));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getSelectionButton(2).press();
-		machine.getCoinSlot().addCoin(new Coin(200));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getCoinSlot().addCoin(new Coin(25));
-		machine.getSelectionButton(2).press();
-		assertFalse(canRacks[2].isEmpty());
+		for(int i = 0; i < 6; i++) {
+			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
+			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
+			machine.getCoinSlot().addCoin(new Coin(200));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getSelectionButton(i).press();
+			machine.getCoinSlot().addCoin(new Coin(200));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getCoinSlot().addCoin(new Coin(25));
+			machine.getSelectionButton(i).press();
+			assertFalse(canRacks[i].isEmpty());
+		}
 	}
 
 	/**

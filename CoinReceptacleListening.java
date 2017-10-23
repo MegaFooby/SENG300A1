@@ -1,5 +1,9 @@
-//SENG300 Group Assignment 1
-//Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+/**
+ * SENG300 Group Assignment 1
+ * @author Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+ * 
+ * A coin receptacle listener class
+ */
 
 package ca.ucalgary.seng300.a1;
 

@@ -1,14 +1,15 @@
-//SENG300 Group Assignment 1
-//Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+/**
+ * SENG300 Group Assignment 1
+ * @author Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+ * 
+ * Class that holds a reference to the parts of the machine necessary for
+ * communication between parts of the vending machine.
+ */
 
 package ca.ucalgary.seng300.a1;
 
 import org.lsmr.vending.hardware.*;
 
-/**
- * Class that holds a reference to the parts of the machine necessary for
- * communication between parts of the vending machine.
- */
 public class VendCommunicator {
 
 	private CoinReceptacleListening receptacle;

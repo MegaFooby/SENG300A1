@@ -1,14 +1,15 @@
-//SENG300 Group Assignment 1
-//Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+/**
+ * SENG300 Group Assignment 1
+ * @author Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+ * 
+ * Listener class for coin slot
+ */
 
 package ca.ucalgary.seng300.a1;
 
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
 
-/**
- * Listener class for coin slot
- */
 public class CoinSlotListening implements CoinSlotListener {
 	private boolean isOn;
 

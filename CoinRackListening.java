@@ -1,15 +1,17 @@
-//SENG300 Group Assignment 1
-//Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+/**
+ * SENG300 Group Assignment 1
+ * @author Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+ * 
+ * Listener for the coin rack. Take in messages about the state of the coin rack
+ * and convey them to others
+ */
+
 
 package ca.ucalgary.seng300.a1;
 
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
 
-/**
- * Listener for the coin rack. Take in messages about the state of the coin rack
- * and convey them to others
- */
 public class CoinRackListening implements CoinRackListener {
 	private boolean isOn;
 	private int coinCount;

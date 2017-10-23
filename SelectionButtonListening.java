@@ -1,13 +1,14 @@
-//SENG300 Group Assignment 1
-//Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+/**
+ * SENG300 Group Assignment 1
+ * @author Tae Chyung (10139101), Cameron Davies (30003456) & Grace Ferguson (30004869)
+ * 
+ * Class for selection button listener
+ */
 
 package ca.ucalgary.seng300.a1;
 
 import org.lsmr.vending.hardware.*;
 
-/**
- * Class for selection button listener
- */
 public class SelectionButtonListening implements SelectionButtonListener {
 	private boolean isOn;
 	private int index;
